@@ -1,5 +1,14 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
+/*
+  P in T[number]: Iterate using indexed access
+  Why not just P in T? Because this is going to access the array constructor properties instead of the type of indexes
+*/
+
+type TupleToObject<T extends readonly (string | number | symbol)[]> = {
+  [P in T[number]]: P
+}
+
 const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
 const tupleNumber = [1, 2, 3, 4] as const
 const sym1 = Symbol(1)
