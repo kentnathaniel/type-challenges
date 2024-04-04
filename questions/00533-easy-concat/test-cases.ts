@@ -2,6 +2,8 @@ import type { Equal, Expect } from '@type-challenges/utils'
 
 const tuple = [1] as const
 
+type Concat<T extends readonly any[], U extends readonly any[]> = [...T, ...U]
+
 type cases = [
   Expect<Equal<Concat<[], []>, []>>,
   Expect<Equal<Concat<[], [1]>, [1]>>,
